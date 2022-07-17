@@ -1,4 +1,5 @@
 import email
+# from typing_extensions import Self
 from django.db import models
 from sqlalchemy import false, true
 
@@ -7,10 +8,11 @@ from sqlalchemy import false, true
 
 class user_details(models.Model):
     name = models.CharField(max_length=200, null=False, unique=False)
-    username = models.CharField(
-        max_length=200, null=False, unique=True, primary_key=True)
+    username = models.CharField(max_length=200, null=False, unique=True, primary_key=True)
     password = models.CharField(max_length=200, null=False, unique=True)
     email = models.EmailField(null=False, unique=True, default="NA")
+    def __str__(self):
+        return self.name
 
 
 class platform_details(models.Model):
@@ -26,3 +28,5 @@ class platform_details(models.Model):
         max_length=200, null=True, unique=False)
     Atcoder_username = models.CharField(
         max_length=200, null=True, unique=False)
+    def __str__(self):
+        return self.username

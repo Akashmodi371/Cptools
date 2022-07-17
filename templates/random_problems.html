@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Random Problem {% endblock title %}
+{% block title %} Cp Problems {% endblock title %}
 
 {% block body %}
 {% if messages %}
@@ -13,7 +13,7 @@
 {% endif %}
 
 <div class="heading">
-    <h1>Explore Problems Randomly</h1>
+    <h1>Explore Problems Here</h1>
 </div>
 
 
@@ -22,18 +22,18 @@
         aria-controls="multiCollapseExample1">
         <li data-num="1" class="tab wave dark">LeetCode</li>
     </a>
-    <a data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false"
+    {% comment %} <a data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false"
         aria-controls="multiCollapseExample1">
         <li data-num="2" class="tab wave dark">CodeChef</li>
-    </a>
+    </a> {% endcomment %}
     <a data-bs-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false"
         aria-controls="multiCollapseExample1">
         <li data-num="3" class="tab wave dark">CodeForces</li>
     </a>
-    <a data-bs-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
+    {% comment %} <a data-bs-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false"
         aria-controls="multiCollapseExample1">
         <li data-num="4" class="tab wave dark">AtCoder</li>
-    </a>
+    </a> {% endcomment %}
     <div class="indicator"></div>
 </ul>
 
@@ -51,13 +51,16 @@
 <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
         <div class="card card-body">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped table-dark">
                 <thead>
                     <tr>
 
-                        <th tabindex="0" style="width: 80px; color: lightcoral; font-size: 20px; text-align: center;">
+                        <th tabindex="0" style="width: 80px; color: grey; font-size: 20px; text-align: center;">
                             Q-Id</th>
-                        <th tabindex="0" style="font-size: 20px; color: lightcoral; text-align: center;">Questions</th>
+                        <th tabindex="0" style="font-size: 30px ; color: lightcoral; text-align: center;">Levels</th>
+
+                        <th tabindex="0" style="font-size: 30px ; color: lightcoral; text-align: center;">Questions</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +75,16 @@
                             {% endfor %}
                             {% endfor%}
                         </td>
+                        <td style="font-size: 20px; cursor: pointer; color: skyblue; text-align: center;">
+                            {% for m in responsedata.stat_status_pairs %}
+                            {% for j,l in m.stat.items%}
+                            {% if j == "is_new_question" %}
+                            <strong> {{ l }}</strong><br>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor%}
+                        </td>
+
                         <td style="font-size: 20px; cursor: pointer; color: skyblue; ">
                             {% for m in responsedata.stat_status_pairs %}
                             {% for j,l in m.stat.items%}
@@ -172,7 +185,7 @@
         </div>
     </div>
 </div>
-<div class="col">
+{% comment %} <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample4">
         <div class="card card-body">
             <table class="table table-bordered">
@@ -211,7 +224,7 @@
             </table>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 <!-- </div> -->
 
 
@@ -242,6 +255,7 @@
     body {
         /* height: 100%; */
         background: black;
+        background-image: linear-gradient(to right, rgb(166, 167, 168), black);
         /* overflow: hidden; */
         font-family: 'Roboto', sans-serif;
 
@@ -286,16 +300,16 @@
     }
 
     .indicator {
-        width: 150px;
+        width: 100px;
         height: 3px;
         background: #2196F3;
         position: absolute;
         margin-top: 58px;
         margin-left: 0;
 
-        -webkit-transition: margin 0.5s ease;
+        -webkit-transition: margin 0.5s ease_out;
 
-        transition: margin 0.5s ease;
+        transition: margin 0.5s ease_out;
     }
 
     .cercle {

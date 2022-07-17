@@ -5,8 +5,8 @@
 {% block body %}
 
   
-  <div class="row1-container">
-    <div class="box box-down cyan">
+  <div class="row1-container mt-5 pt-5">
+    <div class="box  cyan">
       <form method="post" action="/leetcode">
         {% csrf_token %}
       <h2>LeetCode</h2>
@@ -24,15 +24,12 @@
         <strong>{{j.total_problems_solved}}</strong>
         {% endfor %}
       </p>
-
-    
-
     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Get Stats</button>
     </form>
-      <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+      {% comment %} <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt=""> {% endcomment %}
     </div>
 
-    <div class="box red">
+    {% comment %} <div class="box red">
       <form method="post" action="/atcoder">
         {% csrf_token %}
       <h2>AtCoder</h2>
@@ -49,38 +46,11 @@
         <strong>{{j.level}}</strong>
         {% endfor %}
       </p>
-
-
       <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Get Stats</button>
     </form>
       <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-    </div>
+    </div> {% endcomment %}
 
-    <div class="box box-down blue">
-      <form method="post" action="/SPOJ">
-        {% csrf_token %}
-      <h2>SPOJ</h2>
-      <input type="text" name="username_spoj" value="" placeholder="Enter your username">
-      <br>
-      <br>
-      <p>Rank: 
-        {% for i in response_spoj%}
-        <strong>{{i.rank}}</strong>
-        {% endfor %}
-      </p>
-      <p>Points:
-        {% for j in response_spoj%}
-        <strong>{{j.points}}</strong>
-        {% endfor %}
-      </p>
-
-
-      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Get Stats</button>
-    </form>
-      <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
-    </div>
-  </div>
-  <div class="row2-container">
     <div class="box orange">
       <form method="post" action="/codeforces">
         {% csrf_token %}
@@ -98,12 +68,61 @@
         <strong>{{j.contests}}</strong>
         {% endfor %}
       </p>
+      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Get Stats</button>
+    </form>
+      {% comment %} <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt=""> {% endcomment %}
+    </div>
 
 
+
+
+  <div class="row2-container">
+    {% comment %} <div class="box orange">
+      <form method="post" action="/codeforces">
+        {% csrf_token %}
+      <h2>CodeForces</h2>
+      <input type="text" name="username_codeforces" value="" placeholder="Enter your username">
+      <br>
+      <br>
+      <p>Rank: 
+        {% for i in response_codeforces%}
+        <strong>{{i.rank}}</strong>
+        {% endfor %}
+      </p>
+      <p>Contests:
+        {% for j in response_codeforces%}
+        <strong>{{j.contests}}</strong>
+        {% endfor %}
+      </p>
       <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Get Stats</button>
     </form>
       <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
-    </div>
+    </div> {% endcomment %}
+
+
+    {% comment %} ------------------- {% endcomment %}
+    {% comment %} <div class="box box-down blue">
+      <form method="post" action="/SPOJ">
+        {% csrf_token %}
+      <h2>SPOJ</h2>
+      <input type="text" name="username_spoj" value="" placeholder="Enter your username">
+      <br>
+      <br>
+      <p>Rank: 
+        {% for i in response_spoj%}
+        <strong>{{i.rank}}</strong>
+        {% endfor %}
+      </p>
+      <p>Points:
+        {% for j in response_spoj%}
+        <strong>{{j.points}}</strong>
+        {% endfor %}
+      </p>
+      <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Get Stats</button>
+    </form>
+      <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
+    </div> {% endcomment %}
+
   </div>
   
 
@@ -129,7 +148,7 @@
 body {
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(to right, rgb(58, 54, 54), black);
+    background-image: linear-gradient(to right, rgb(166, 167, 168), black);
 }
 
 .attribution { 

@@ -42,7 +42,7 @@
                 To
                 Solve A Question Each Day</p>
             <br>
-            <a href="/login"><button type="button" class="btn btn-outline-info button">Get Started With
+            <a href="/login"><button type="button" class="btn btn-outline-info button btn-light ">Get Started With
                     Coding</button></a>
         </div>
         <div class="right">
@@ -52,6 +52,7 @@
 
             <!-- Including the TagCloud.js script CDN in the document    -->
             <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"> </script>
+            <script type="text/javascript" src="./dist/TagCloud.min.js"></script>
         </div>
     </div>
 
@@ -62,6 +63,7 @@
 
         .black {
             background-color: black;
+            background-image: linear-gradient(to right, rgb(166, 167, 168), black);
             height: 89vh;
         }
 
@@ -133,10 +135,9 @@
     <script>
         const Texts = [
             'HTML', 'CSS', 'JAVASCRIPT',
-            'SWIFT', 'MONGOOSE', 'REACT',
-            'PYTHON', 'SASS',
-            'DJANGO', 'NODEJS', 'MONGODB',
-            'EXPRESS', 'MYSQL', 'JQUERY', 'JAVA'
+            'Django', 'MONGOOSE', 'REACT',
+            'PYTHON', 'Postgresql',
+            'NODEJS', 'MONGODB',
         ];
 
         var tagCloud = TagCloud('.Sphere', Texts, {
@@ -146,11 +147,11 @@
 
             // animation speed
             // slow, normal, fast
-            maxSpeed: 'normal',
-            initSpeed: 'fast',
+            maxSpeed: 'fastest',
+            initSpeed: 'fastest',
 
             // Rolling direction [0 (top) , 90 (left), 135 (right-bottom)] 
-            direction: 135,
+            direction: 180,
 
             // interaction with mouse or not [Default true (decelerate to rolling init speed, and keep rolling with mouse).]
             keep: true
@@ -158,7 +159,7 @@
         });
 
         // Giving color to each text in sphere
-        var color = '#01bbf6 ';
+        var color = 'cyan';
         document.querySelector('.Sphere').style.color = color;
     </script>
     {% endblock body %}
